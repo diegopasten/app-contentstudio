@@ -251,13 +251,13 @@
             opacity: 0.5;
           }
 
-          .state(@state) {
+          .state {
             .names-and-icon-view {
               cursor: pointer;
 
               .@{_COMMON_PREFIX}wrapper:before {
-                content: "";
-                background-image: url('../../icons/@{state}.svg');
+                //content: "";
+                //background-image: url('../../icons/@{state}.svg');
                 background-size: contain;
               }
 
@@ -268,15 +268,18 @@
           }
 
           &.invalid {
-            .state('invalid');
+            .icon-state-invalid;
+            .state;
           }
 
           &.ready {
-            .state('ready');
+            .icon-state-ready;
+            .state;
           }
 
           &.in-progress {
-            .state('in-progress');
+            .icon-state-in-progress;
+            .state;
           }
 
           .dependant-item-viewer {

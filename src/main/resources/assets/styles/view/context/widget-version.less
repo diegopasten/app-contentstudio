@@ -28,6 +28,18 @@
           .close-version-info-button {
             background-color: @admin-bg-light-gray;
           }
+
+          &.published {
+            .close-version-info-button {
+              background-color: @admin-green;
+            }
+          }
+
+          &.modified {
+            .close-version-info-button {
+              background-color: @admin-dark-gray;
+            }
+          }
         }
 
         &.active {
@@ -49,11 +61,16 @@
           &.draft {
             color: @admin-black;
             background-color: @admin-bg-light-gray;
+
+            &.modified {
+              background-color: @admin-dark-gray;
+              color: @admin-white;
+            }
           }
 
           &.master {
             color: @admin-white;
-            background-color: forestgreen;
+            background-color: @admin-green;
           }
         }
 
@@ -79,7 +96,7 @@
             display: block !important;
 
             &:not(.active) {
-              background-color: @admin-button-blue2;
+              background-color: @admin-dark-gray;
             }
 
             &.active {
@@ -107,6 +124,7 @@
           cursor: pointer;
           float: right;
           padding: 2px 16px 7px 7px;
+          margin-top: 2px;
 
           &:after {
             content: "";
@@ -124,9 +142,60 @@
 
         }
 
+        box-sizing: border-box;
+        border: 2px solid transparent;
+
+        &.published {
+          background-color: @admin-green;
+          color: @admin-white;
+
+          .close-version-info-button {
+            background-color: @admin-green;
+          }
+
+          .version-info {
+            color: @admin-black;
+            background-color: @admin-white;
+          }
+
+        }
+
+        &.modified {
+          background-color: @admin-dark-gray;
+          color: @admin-white;
+
+          .close-version-info-button {
+            background-color: @admin-dark-gray;
+          }
+        }
+
+        &.published, &.modified {
+          .icon-user, .version-modifier {
+            color: @admin-white;
+          }
+
+          .close-version-info-button:after {
+            border-bottom: 10px solid @admin-white;
+          }
+        }
+
         &:not(.expanded) {
           .close-version-info-button, .version-info {
             display: none;
+          }
+        }
+
+        &.expanded {
+          &:not(.modified) {
+            border: 2px solid @admin-black;
+
+            &:not(.published) {
+              .version-info {
+                .version-info-timestamp, .version-info-version-id, .version-info-display-name {
+                  display: none;
+                }
+              }
+            }
           }
         }
 

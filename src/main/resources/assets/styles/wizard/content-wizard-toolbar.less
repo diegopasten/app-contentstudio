@@ -107,20 +107,16 @@
       display: block;
     }
 
-    &.invalid:before {
-      content: "";
-      background-image: url('../../icons/invalid.svg');
+    &.invalid {
+      .icon-state-invalid;
     }
 
-    &.ready:before {
-      content: "";
-      background-image: url('../../icons/ready.svg');
+    &.ready{
+     .icon-state-ready;
     }
 
-    &.in-progress:before {
-      content: "";
-      background-image: url('../../icons/in-progress.svg');
-      background-repeat: no-repeat;
+    &.in-progress {
+      .icon-state-in-progress;
     }
   }
 
